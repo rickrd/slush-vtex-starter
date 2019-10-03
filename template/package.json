@@ -2,8 +2,8 @@
   "name": "vtex-starter",
   "author": "@rickrd",
   "license": "ISC",
-  "version": "0.0.5",
-  "description": "VTEX Store development tools - reverse proxy, compilation, minification, optimization and more!",
+  "version": "0.0.6",
+  "description": "VTEX fast configurable project structure setup and custom theme based",
   "vtex": {
     "store": "<%= storeName %>",
     "acronym": "<%= storeAcronym %>",
