@@ -40,7 +40,7 @@
     &:after {
       content: '';
       display: block;
-      background-color: $gorse;
+      background-color: $secondaryColor;
       height: 3px;
       position: absolute;
       top: -4px;
@@ -78,11 +78,11 @@
   @extend .menu__header-title;
   padding: 20px 0;
   font-size: 14px;
-  font-weight: $primaryFontRegular;
+  font-weight: $fontRegular;
   text-transform: uppercase;
   @media (max-width: $screen-sm-max) {
     text-transform: uppercase;
-    font-weight: $primaryFontSemiBold;
+    font-weight: $fontSemiBold;
     color: $thunder;
     background-color: $white;
   }
@@ -190,7 +190,7 @@
   margin: 0;
   padding: 0;
   font-size: 12px;
-  font-weight: $primaryFontRegular;
+  font-weight: $fontRegular;
   max-width: 150px;
   height: 36px;
   margin-bottom: 18px;
@@ -268,12 +268,12 @@
   @include letter-spacing(40);
   float: right;
   font-size: 14px;
-  font-weight: $primaryFontBold;
+  font-weight: $fontBold;
   padding: 4px 0;
   margin-top: 3px;
   @media (min-width: $screen-md-min) {
     font-size: 12px;
-    font-weight: $primaryFontRegular;
+    font-weight: $fontRegular;
   }
 }
 
@@ -303,7 +303,7 @@
 
 .minicart-resume__total-counter,
 .minicart-resume__total-price-target {
-  font-weight: $primaryFontSemiBold;
+  font-weight: $fontSemiBold;
   @include letter-spacing(40);
 }
 
@@ -312,8 +312,8 @@
   margin-top: 10px;
   font-size: 14px;
   text-transform: uppercase;
-  font-weight: $primaryFontSemiBold;
-  background-color: $gorse;
+  font-weight: $fontSemiBold;
+  background-color: $secondaryColor;
   color: $thunder;
   @include letter-spacing(50);
   &:hover {

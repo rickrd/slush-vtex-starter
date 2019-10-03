@@ -3,9 +3,9 @@
 ## Setup
 
 1. npm install && bower install;
-2. upload the templates in the according store cms following these rules:
-   - set up `search` template using class `list search`;
-   - set up `category` template using class `list category`;
-   - set up `department` template using class `list department`;
-   - set up `emptysearch` template using class `empty-search`;
-   - set up `shelf` template using class `main-shelf`;
+2. configuration:
+   - set up `search` layout using class `list search`;
+   - set up `category` layout using class `list category`;
+   - set up `department` layout using class `list department`;
+   - set up `emptysearch` layout using class `empty-search`;
+   - set up `shelf` template using class `main-shelf`; - modify `list` HTML template to set `layout` property value as the main `shelf` template id

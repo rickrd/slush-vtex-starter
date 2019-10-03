@@ -44,10 +44,10 @@
   position: relative;
 }
 .menu__header-title {
-  border-bottom: 2px solid $gorse;
+  border-bottom: 2px solid $secondaryColor;
   margin: 0;
   font-size: 14px;
-  font-weight: $primaryFontSemiBold;
+  font-weight: $fontSemiBold;
   padding: 20px 0;
   text-transform: uppercase;
   @media (max-width: $screen-sm-max) {
@@ -71,7 +71,7 @@
   text-transform: uppercase;
   font-size: 14px;
   @media (max-width: $screen-sm-max) {
-    font-weight: $primaryFontRegular !important;
+    font-weight: $fontRegular !important;
   }
 
   &:first-child {
@@ -155,9 +155,6 @@
           }
         }
       }
-      .menu__link {
-        font-size: 11px;
-      }
     }
     &:hover {
       cursor: pointer;
@@ -195,7 +192,7 @@
 
   @media (min-width: $screen-md-min) {
     @include letter-spacing(40);
-    font-weight: $primaryFontSemiBold;
+    font-weight: $fontSemiBold;
     border: none;
     font-size: 13px;
   }
@@ -254,7 +251,7 @@
     position: absolute;
     width: 500px;
     text-align: left;
-    top: 79px;
+    top: 42px;
     border: 1px solid $desertStorm;
     z-index: 3;
 

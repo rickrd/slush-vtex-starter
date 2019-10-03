@@ -22,7 +22,7 @@
         &.last {
           a {
             text-transform: uppercase;
-            font-weight: $primaryFontExtraBold;
+            font-weight: $fontExtraBold;
           }
         }
       }
@@ -210,11 +210,11 @@
 
   .product-name {
     font-size: 20px;
-    font-weight: $primaryFontRegular;
+    font-weight: $fontRegular;
     h1 {
       margin: 0;
       font-size: 20px;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
     }
     @media (max-width: $screen-sm-max) {
       text-align: center;
@@ -231,7 +231,7 @@
 
   .product-reference {
     font-size: 12px;
-    font-weight: $primaryFontRegular;
+    font-weight: $fontRegular;
     color: $doveGray;
     line-height: 15px;
     padding: 5px 0 20px 0;
@@ -398,7 +398,7 @@
 
     .price-list-price {
       font-size: 14px;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
       line-height: 22px;
       color: $doveGray;
       text-transform: lowercase;
@@ -407,14 +407,14 @@
 
       strong {
         text-transform: uppercase;
-        font-weight: $primaryFontRegular;
+        font-weight: $fontRegular;
       }
     }
 
     .price-list-price--por {
       margin-left: 6px;
       font-size: 34px;
-      font-weight: $primaryFontExtraBold;
+      font-weight: $fontExtraBold;
       line-height: 43px;
       display: block;
     }
@@ -425,7 +425,7 @@
 
     .price-best-price strong {
       font-size: 24px;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
       display: block;
       @include letter-spacing(40);
     }
@@ -435,7 +435,7 @@
       color: $thunder;
       font-size: 16px;
       b {
-        font-weight: $primaryFontRegular;
+        font-weight: $fontRegular;
       }
 
       .skuBestInstallmentNumber,
@@ -465,12 +465,12 @@
 
     .buy-button {
       @extend .button;
-      background-color: $gorse;
+      background-color: $secondaryColor;
       width: 270px;
       max-width: 270px;
       height: 50px;
       font-size: 16px;
-      font-weight: $primaryFontSemiBold;
+      font-weight: $fontSemiBold;
       line-height: 50px;
       text-align: center;
       @include letter-spacing(50);
@@ -495,7 +495,7 @@
     .notifyme-title {
       margin: 0;
       font-size: 24px;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
       @include letter-spacing(40);
     }
 
@@ -514,7 +514,7 @@
       p {
         margin: 15px 0 24px;
         font-size: 15px;
-        font-weight: $primaryFontRegular;
+        font-weight: $fontRegular;
         line-height: 24px;
       }
 
@@ -542,7 +542,7 @@
         padding: 9px 0;
         margin-top: 10px;
         font-size: 14px;
-        font-weight: $primaryFontSemiBold;
+        font-weight: $fontSemiBold;
         text-transform: uppercase;
         display: block;
         color: $thunder;
@@ -653,7 +653,7 @@
         color: $thunder;
         text-align: center;
         border: none;
-        font-weight: $primaryFontRegular;
+        font-weight: $fontRegular;
         @include letter-spacing(150);
       }
 
@@ -682,7 +682,7 @@
           }
 
           &:nth-child(1) {
-            font-weight: $primaryFontSemiBold;
+            font-weight: $fontSemiBold;
           }
         }
       }
@@ -760,15 +760,15 @@
       text-align: center;
       color: $doveGray;
       display: block;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
       cursor: pointer;
       text-transform: uppercase;
       padding: 0 10px 12px 10px;
       @include letter-spacing(40);
       &.selected {
-        font-weight: $primaryFontSemiBold;
+        font-weight: $fontSemiBold;
         color: $black;
-        border-bottom: 5px solid $gorse;
+        border-bottom: 5px solid $secondaryColor;
         @media (max-width: $screen-sm-max) {
           margin-top: -58px;
         }
@@ -787,7 +787,7 @@
     table.Especificacoes {
       th {
         font-size: 14px;
-        font-weight: $primaryFontRegular;
+        font-weight: $fontRegular;
         text-transform: none;
       }
 
@@ -860,7 +860,7 @@
       }
 
       .name-field {
-        font-weight: $primaryFontExtraBold;
+        font-weight: $fontExtraBold;
       }
 
       .name-field,
@@ -1020,7 +1020,7 @@
     font-size: 13px;
     display: inline-block;
     strong {
-      font-weight: $primaryFontExtraBold;
+      font-weight: $fontExtraBold;
       font-size: 13px;
       display: block;
     }
@@ -1205,7 +1205,7 @@
     right: 110px;
 
     b {
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
     }
     &.displayed {
       display: block;
@@ -1247,7 +1247,7 @@
     }
 
     .calculadora-minimo--popup__title {
-      color: $gorse;
+      color: $secondaryColor;
       font-size: 15px;
       font-weight: 500;
     }

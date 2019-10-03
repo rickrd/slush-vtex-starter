@@ -4,7 +4,7 @@ header {
   width: 100%;
   z-index: 99;
   .header__content {
-    background-color: $thunder;
+    background-color: $primaryColor;
 
     z-index: 1;
     @media (max-width: $screen-sm-max) {
@@ -35,7 +35,7 @@ header {
   .header__top--wrapper {
     @media (min-width: $screen-md-min) {
       display: flex;
-      justify-content: left;
+      justify-content: center;
       align-items: center;
       height: 77px;
     }
@@ -163,7 +163,7 @@ header {
         display: flex;
         height: 77px;
         &:after {
-          @include arrow(bottom, 6px, $gorse);
+          @include arrow(bottom, 6px, $secondaryColor);
           display: inline-block;
           position: inherit;
           margin-left: 15px;
@@ -201,7 +201,7 @@ header {
       &:hover {
         .header-account-drop {
           display: block;
-          border-top: 3px solid $gorse;
+          border-top: 3px solid $secondaryColor;
         }
         a {
           text-decoration: none;
@@ -239,7 +239,7 @@ header {
     .header__minicart-total {
       width: 22px;
       height: 22px;
-      background-color: $gorse;
+      background-color: $secondaryColor;
       display: flex;
       align-items: center;
       justify-content: center;

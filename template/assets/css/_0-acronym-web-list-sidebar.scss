@@ -9,7 +9,7 @@
 
 @mixin sidebarTitleStyle {
   font-size: 16px;
-  font-weight: $primaryFontExtraBold;
+  font-weight: $fontExtraBold;
   margin: 32px 0 16px;
 
   @media (max-width: $screen-sm-max) {
@@ -20,7 +20,7 @@
 
 @mixin sidebarSubTitleStyle {
   font-size: 16px;
-  font-weight: $primaryFontRegular;
+  font-weight: $fontRegular;
   margin: 0;
   color: $doveGray;
 
@@ -68,7 +68,7 @@
   &:before {
     content: 'CATEGORIAS';
     font-size: 16px;
-    font-weight: $primaryFontSemiBold;
+    font-weight: $fontSemiBold;
   }
 }
 
@@ -115,7 +115,7 @@
       display: none;
       a {
         font-size: 16px;
-        font-weight: $primaryFontExtraBold;
+        font-weight: $fontExtraBold;
         @include letter-spacing(40);
         text-transform: uppercase;
       }
@@ -193,7 +193,7 @@
 
     h5 {
       font-size: 14px;
-      font-weight: $primaryFontSemiBold;
+      font-weight: $fontSemiBold;
       @include letter-spacing(40);
       text-transform: uppercase;
       @media (max-width: $screen-sm-max) {
@@ -284,7 +284,7 @@
     font-size: 16px;
     color: $thunder;
     @include letter-spacing(40);
-    font-weight: $primaryFontBold;
+    font-weight: $fontBold;
     text-transform: uppercase;
     @media (max-width: $screen-sm-max) {
       display: none;
@@ -301,12 +301,12 @@
 
   .menu__header-title {
     @extend .menu__header-title;
-    font-weight: $primaryFontBold;
+    font-weight: $fontBold;
     background-color: $white;
     color: $thunder;
-    border-bottom: 2px solid $gorse;
+    border-bottom: 2px solid $secondaryColor;
     font-size: 14px;
-    font-weight: $primaryFontBold;
+    font-weight: $fontBold;
   }
 }
 
@@ -345,7 +345,7 @@
   color: $white;
   font-size: 14px;
   background-color: $thunder;
-  font-weight: $primaryFontSemiBold;
+  font-weight: $fontSemiBold;
   padding: 9px;
   margin-bottom: 20px;
   @media (min-width: $screen-md-min) {
@@ -363,7 +363,7 @@
   max-width: 250px;
   color: $thunder;
   font-size: 14px;
-  font-weight: $primaryFontSemiBold;
+  font-weight: $fontSemiBold;
   padding: 9px 0;
   @include letter-spacing(50);
   @media (max-width: $screen-sm-max) {
@@ -406,7 +406,7 @@ body.list.category {
   .search-single-navigator {
     h4 {
       > a {
-        font-weight: $primaryFontSemiBold;
+        font-weight: $fontSemiBold;
       }
       @media (max-width: $screen-sm-max) {
         border: none;

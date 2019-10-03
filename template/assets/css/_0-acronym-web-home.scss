@@ -33,7 +33,7 @@ body.home {
 
     .minibanners-title {
       font-size: 18px;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
       @include letter-spacing(40);
       text-align: center;
       @media (min-width: $screen-md-min) {
@@ -117,19 +117,19 @@ body.home {
           width: 100%;
           font-size: 16px;
           line-height: 19px;
-          font-weight: $primaryFontSemiBold;
+          font-weight: $fontSemiBold;
         }
 
         strong {
           font-size: 16px;
           line-height: 19px;
-          font-weight: $primaryFontSemiBold;
+          font-weight: $fontSemiBold;
         }
       }
       &-payment {
         .benefits__bar--text {
           b {
-            font-weight: $primaryFontRegular;
+            font-weight: $fontRegular;
             font-size: 12px;
           }
         }

@@ -41,7 +41,7 @@
       background-image: none !important;
       content: 'Ordenação:';
       font-size: 13px;
-      font-weight: $primaryFontRegular;
+      font-weight: $fontRegular;
       position: absolute;
       left: -90px;
     }
@@ -50,7 +50,7 @@
 .custom-select__selected {
   color: $silverChalice;
   font-size: 13px;
-  font-weight: $primaryFontRegular;
+  font-weight: $fontRegular;
   position: relative;
 
   @media (min-width: $screen-md-min) {
