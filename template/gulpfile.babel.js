@@ -15,7 +15,6 @@ import compass from 'compass-importer'
 import vendor from './vendor'
 import middlewares from './middlewares'
 
-
 //                   __ _
 //   ___ ___  _ __  / _(_) __ _
 //  / __/ _ \| '_ \| |_| |/ _` |
@@ -27,15 +26,9 @@ import middlewares from './middlewares'
  * General
  */
 const $ = gulpLoad()
-const {
-  vtex,
-  version
-} = JSON.parse(fs.readFileSync('package.json'))
+const { vtex, version } = JSON.parse(fs.readFileSync('package.json'))
 
-const jsGlob = [
-  'assets/js/components/*.js',
-  'assets/js/controllers/*.js'
-]
+const jsGlob = ['assets/js/components/*.js', 'assets/js/controllers/*.js']
 const jsFiles = vendor.concat(jsGlob)
 
 function onError(error) {
@@ -64,7 +57,6 @@ const bannerFiles = `/**
  * ${accountName}
  * @date <%= new Date() %>
  */\n\n`
-
 
 //                                   _
 //    ___ ___  _ __  _ __   ___  ___| |_
@@ -102,10 +94,8 @@ gulp.task('connect', () => {
     app: 'google chrome'
   }
 
-  return gulp.src('./')
-    .pipe($.open(openOptions));
+  return gulp.src('./').pipe($.open(openOptions))
 })
-
 
 //        _
 //    ___| | ___  __ _ _ __
@@ -117,7 +107,6 @@ gulp.task('clean', () => {
   return del(['build/', 'deploy/', `assets/css/_${parseInt(version)}-${vtex.acronym}-${vtex.device}-sprite.scss`])
 })
 
-
 //     _                                _       _
 //    (_) __ ___   ____ _ ___  ___ _ __(_)_ __ | |_
 //    | |/ _` \ \ / / _` / __|/ __| '__| | '_ \| __|
@@ -128,12 +117,10 @@ gulp.task('clean', () => {
 gulp.task('js', ['js:main', 'js:lint', 'js:legacy'])
 
 gulp.task('js:main', () => {
-  return gulp.src(jsFiles)
+  return gulp
+    .src(jsFiles)
     .pipe($.sourcemaps.init())
-    .pipe(
-      $.babel()
-        .on('error', onError)
-    )
+    .pipe($.babel().on('error', onError))
     .pipe($.concat(`${parseInt(version)}-${vtex.acronym}-${vtex.device}-application.js`))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('./build/arquivos/'))
@@ -141,17 +128,18 @@ gulp.task('js:main', () => {
 })
 
 gulp.task('js:lint', () => {
-  return gulp.src(jsFiles)
+  return gulp
+    .src(jsFiles)
     .pipe($.xo())
     .pipe($.xo.format())
 })
 
 gulp.task('js:legacy', () => {
-  return gulp.src(['assets/js/*.js'])
+  return gulp
+    .src(['assets/js/*.js'])
     .pipe(gulp.dest('./build/arquivos/'))
     .pipe($.connect.reload())
 })
-
 
 //     _                                _       _                 _            _
 //    (_) __ ___   ____ _ ___  ___ _ __(_)_ __ | |_            __| | ___ _ __ | | ___  _   _
@@ -161,18 +149,15 @@ gulp.task('js:legacy', () => {
 //  |__/                                 |_|                            |_|            |___/
 
 gulp.task('js:deploy', () => {
-  return gulp.src('./build/arquivos/*.js')
+  return gulp
+    .src('./build/arquivos/*.js')
     .pipe($.stripComments())
-    .pipe(
-      $.babel()
-        .on('error', onError)
-    )
+    .pipe($.babel().on('error', onError))
     .pipe($.uglify())
     .pipe($.header(bannerFiles))
     .pipe(gulp.dest('./deploy/js/'))
     .pipe($.connect.reload())
 })
-
 
 //       _         _
 //   ___| |_ _   _| | ___  ___
@@ -182,25 +167,25 @@ gulp.task('js:deploy', () => {
 //           |___/
 
 gulp.task('sass', () => {
-  return gulp.src('assets/css/**/*.scss')
+  return gulp
+    .src('assets/css/0-<%= storeAcronym %>.scss')
     .pipe(
       $.sass({
         importer: compass,
         sourceMap: true,
         sourceMapEmbed: true
-      })
-        .on('error', onError)
+      }).on('error', onError)
     )
     .pipe(gulp.dest('./build/arquivos/'))
     .pipe($.connect.reload())
 })
 
 gulp.task('css', () => {
-  return gulp.src('assets/css/*.css')
+  return gulp
+    .src('assets/css/*.css')
     .pipe(gulp.dest('./build/arquivos/'))
     .pipe($.connect.reload())
 })
-
 
 //       _         _                         _            _
 //   ___| |_ _   _| | ___  ___            __| | ___ _ __ | | ___  _   _
@@ -210,15 +195,12 @@ gulp.task('css', () => {
 //           |___/                                 |_|            |___/
 
 gulp.task('sass:deploy', () => {
-  return gulp.src('build/arquivos/*.css')
-    .pipe(
-      $.cssmin()
-        .on('error', onError)
-    )
+  return gulp
+    .src('build/arquivos/*.css')
+    .pipe($.cssmin().on('error', onError))
     .pipe($.header(bannerFiles))
     .pipe(gulp.dest('./deploy/css/'))
 })
-
 
 //                  _ _
 //   ___ _ __  _ __(_) |_ ___
@@ -233,7 +215,8 @@ gulp.task('sprite', () => {
   const streamCss = merge()
 
   const iterateFolders = folder => {
-    const sprite = gulp.src(`assets/img/sprites/${folder}/*.png`)
+    const sprite = gulp
+      .src(`assets/img/sprites/${folder}/*.png`)
       .pipe(
         $.spritesmith({
           imgName: `${parseInt(version)}-${vtex.acronym}-${vtex.device}-sprite-${folder}.png`,
@@ -243,8 +226,7 @@ gulp.task('sprite', () => {
           cssOpts: {
             folder: folder
           }
-        })
-          .on('error', onError)
+        }).on('error', onError)
       )
       .pipe(vinylBuffer())
       .pipe($.spritesmash())
@@ -255,9 +237,7 @@ gulp.task('sprite', () => {
         })
       )
 
-    const img = sprite.img
-      .pipe($.debug())
-      .pipe(gulp.dest('./build/arquivos/'))
+    const img = sprite.img.pipe($.debug()).pipe(gulp.dest('./build/arquivos/'))
 
     streamImg.add(img)
     streamCss.add(sprite.css)
@@ -265,9 +245,7 @@ gulp.task('sprite', () => {
 
   fs.readdirSync(spritesDir).map(iterateFolders)
 
-  const css = streamCss
-    .pipe($.concat(`_${parseInt(version)}-${vtex.acronym}-${vtex.device}-sprite.scss`))
-    .pipe(gulp.dest('./assets/css/'))
+  const css = streamCss.pipe($.concat(`_${parseInt(version)}-${vtex.acronym}-${vtex.device}-sprite.scss`)).pipe(gulp.dest('./assets/css/'))
 
   return merge(streamImg, css)
 })
@@ -275,7 +253,6 @@ gulp.task('sprite', () => {
 gulp.task('sprite-clean', () => {
   return del([`build/arquivos/${parseInt(version)}-${vtex.acronym}-${vtex.device}-sprite*.png`])
 })
-
 
 //   _
 //  (_)_ __ ___   __ _
@@ -285,11 +262,11 @@ gulp.task('sprite-clean', () => {
 //               |___/
 
 gulp.task('img', () => {
-  return gulp.src('assets/img/*.{jpg,png,gif}')
+  return gulp
+    .src('assets/img/*.{jpg,png,gif}')
     .pipe(gulp.dest('./build/arquivos/'))
     .pipe($.connect.reload())
 })
-
 
 //   _                               _            _
 //  (_)_ __ ___   __ _            __| | ___ _ __ | | ___  _   _
@@ -299,20 +276,22 @@ gulp.task('img', () => {
 //               |___/                     |_|            |___/
 
 gulp.task('img:deploy', () => {
-  return gulp.src('build/arquivos/*.{png,jpg,gif}')
+  return gulp
+    .src('build/arquivos/*.{png,jpg,gif}')
     .pipe(
-      $.imagemin({
-        interlaced: true,
-        progressive: true,
-        optimizationLevel: 5
-      },
+      $.imagemin(
+        {
+          interlaced: true,
+          progressive: true,
+          optimizationLevel: 5
+        },
         {
           verbose: true
-        })
+        }
+      )
     )
     .pipe(gulp.dest('./deploy/img/'))
 })
-
 
 //                 _       _
 //  __      ____ _| |_ ___| |__
@@ -331,7 +310,6 @@ gulp.task('watch', () => {
   gulp.watch(['assets/img/*.{jpg,png,gif}'], ['img'])
 })
 
-
 //   _           _ _     _
 //  | |__  _   _(_) | __| |
 //  | '_ \| | | | | |/ _` |
@@ -341,7 +319,6 @@ gulp.task('watch', () => {
 gulp.task('build', done => {
   return runSequence('sprite', ['js', 'sass', 'css', 'img'], done)
 })
-
 
 //       _            _
 //    __| | ___ _ __ | | ___  _   _
@@ -353,7 +330,6 @@ gulp.task('build', done => {
 gulp.task('deploy', done => {
   return runSequence('clean', 'build', ['js:deploy', 'sass:deploy', 'img:deploy'], done)
 })
-
 
 //       _       __             _ _
 //    __| | ___ / _| __ _ _   _| | |_
