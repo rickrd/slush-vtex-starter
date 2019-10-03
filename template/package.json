@@ -2,7 +2,7 @@
   "name": "vtex-starter",
   "author": "@rickrd",
   "license": "ISC",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "VTEX Store development tools - reverse proxy, compilation, minification, optimization and more!",
   "vtex": {
     "store": "<%= storeName %>",
@@ -33,11 +33,7 @@
   },
   "keywords": [
     "vtex",
-    "speed",
-    "vtex",
-    "speed",
-    "gulp",
-    "sass"
+    "avanti"
   ],
   "devDependencies": {
     "babel-core": "^6.26.3",

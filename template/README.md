@@ -1,4 +1,6 @@
-# Make sure to follow these steps to configure your project:
+# Make sure to follow this guide to properly configure your project:
+
+## Setup
 
 1. npm install && bower install;
 2. upload the templates in the according store cms following these rules:

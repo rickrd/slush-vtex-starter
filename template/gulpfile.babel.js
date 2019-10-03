@@ -168,7 +168,7 @@ gulp.task('js:deploy', () => {
 
 gulp.task('sass', () => {
   return gulp
-    .src('assets/css/0-<%= storeAcronym %>.scss')
+    .src('assets/css/**/*.scss')
     .pipe(
       $.sass({
         importer: compass,
