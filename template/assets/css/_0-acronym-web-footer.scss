@@ -2,7 +2,7 @@
   background-color: $white;
 }
 .footer-newsletter {
-  background-color: $mineShaft;
+  background-color: $primaryColor;
   padding: 20px 10px 25px 10px;
   @media (min-width: $screen-sm-min) {
     padding: 25px 15px;
@@ -288,7 +288,7 @@ label.newsletter__input--error {
   }
 }
 .footer-bottom__text {
-  color: $tundora;
+  color: $bodyTextColor;
   font-size: 12px;
   line-height: 1.7;
   margin-bottom: 10px;

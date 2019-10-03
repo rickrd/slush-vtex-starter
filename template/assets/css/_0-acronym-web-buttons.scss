@@ -45,11 +45,11 @@
   }
 
   &--green {
-    background-color: $buttonGreenColor;
+    background-color: $downy;
     color: #fff;
 
     &:hover {
-      background-color: lighten($buttonGreenColor, 2);
+      background-color: lighten($downy, 2);
       color: #fff;
     }
   }
