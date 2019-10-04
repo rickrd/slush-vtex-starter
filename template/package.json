@@ -2,7 +2,7 @@
   "name": "vtex-starter",
   "author": "@rickrd",
   "license": "ISC",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "custom theme based VTEX configurable project structure",
   "vtex": {
     "store": "<%= storeName %>",
