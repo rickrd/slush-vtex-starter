@@ -9,7 +9,7 @@
   }
 }
 .newsletter__title {
-  color: $white;
+  color: $secondaryColor;
   text-align: left;
   font-size: 14px;
   font-weight: $fontRegular;
@@ -64,12 +64,11 @@
 }
 .newsletter__input {
   background-color: $white;
-  border: none;
   font-size: 14px;
   padding: 9px 20px;
   color: $doveGray;
   width: 100%;
-  border-radius: 0;
+  border: 1px solid $borderColor;
   @include placeholder {
     color: $doveGray;
     font-size: 14px;
@@ -101,15 +100,21 @@ label.newsletter__input--error {
   @include appearance(none);
   @include letter-spacing(50);
   background-color: $secondaryColor;
+  color: $primaryColor;
   border: none;
-  color: $black;
   font-size: 12px;
   padding: 10px 35px;
   display: inline-block;
   text-transform: uppercase;
   top: 0;
   font-weight: $fontSemiBold;
+
+  &:hover {
+    background-color: $primaryColor;
+    color: $secondaryColor;
+  }
 }
+
 .footer-content {
   @media (min-width: $screen-sm-min) {
     margin-top: 30px;

@@ -314,11 +314,11 @@
   text-transform: uppercase;
   font-weight: $fontSemiBold;
   background-color: $secondaryColor;
-  color: $thunder;
+  color: $primaryColor;
   @include letter-spacing(50);
   &:hover {
-    background-color: $saffronMango;
-    color: $thunder;
+    background-color: $primaryColor;
+    color: $secondaryColor;
     @include transition(background-color 200ms);
   }
 }

@@ -103,7 +103,12 @@ APP.controller.Home = ClassAvanti.extend({
       responsive: [
         {
           breakpoint: 992,
-          settings: 'unslick'
+          settings: {
+            slidesToScroll: 1,
+            slidesToShow: 4,
+            dots: false,
+            arrows: true
+          }
         }
       ]
     }

@@ -208,10 +208,10 @@ APP.controller.Product = ClassAvanti.extend({
   bind() {
     this._bindBuyButton()
     this._bindSkuSelection()
-    // this._bindResizeSlick()
     this._bindChangeTabs()
     this._bindChangeThumbs()
     this._bindGetProduct()
+    this._bindQtdControls()
   },
 
   _bindBuyButton() {
@@ -288,19 +288,6 @@ APP.controller.Product = ClassAvanti.extend({
       this.productPrice.addClass('product-price--displayed')
       this.productShipping.show()
     }
-  },
-
-  _bindResizeSlick() {
-    var intervalResize = setInterval(() => {
-      if ($._data(window, 'events').resize[0].namespace === '') {
-        clearInterval(intervalResize)
-
-        $(window).on('resize orientationchange', () => {
-          this.productThumbs.slick('resize')
-          this.slickSimilars.slick('resize')
-        })
-      }
-    }, 100)
   },
 
   changePrice() {
@@ -384,74 +371,20 @@ APP.controller.Product = ClassAvanti.extend({
 
     qtdBtn.on('click', e => {
       const qtdInput = $('.calculadora-qtd--input')
-      const qtdInputValue = parseInt(qtdInput.val())
-      const multiplicador = qtdInput.data('multiplier')
-      const tipoLote = qtdInput.data('lote')
-      const unidade = qtdInput.data('unidade')
+      const qtdInputValue = qtdInput.attr('value')
+      let buyButtonUrl = $('.buy-button').attr('href')
+      const buyButtonQty = buyButtonUrl.split('&qty=')[1].split('&')[0]
 
-      setTimeout(() => {
-        const _this = $(e.currentTarget)
-
-        if (qtdInputValue >= multiplicador) {
-          _this.hasClass('calculadora-qtd--less') ? qtdInput.val(qtdInputValue - multiplicador) : qtdInput.val(qtdInputValue + multiplicador)
-          if (qtdInput.val() < multiplicador) {
-            qtdInput.val(multiplicador)
-          }
-
-          const divisor = parseInt(qtdInput.val()) / multiplicador
-          const qtdValue = qtdInput.val()
-
-          $('.calculadora-lote-unidade').text(`${qtdValue} ${unidade}`)
-
-          divisor > 1 ? $('.calculadora-lote-tipo').text(`${divisor} ${tipoLote}s`) : $('.calculadora-lote-tipo').text(`${divisor} ${tipoLote}`)
-
-          let buyButtonUrl = $('.buy-button').attr('href')
-          const buyButtonQty = buyButtonUrl.split('&qty=')[1].split('&')[0]
-          buyButtonUrl = buyButtonUrl.replace(`&qty=${buyButtonQty}`, `&qty=${divisor}`)
-
-          $('.buy-button').attr('href', buyButtonUrl)
-        }
-      }, 100)
-    })
-  },
-
-  _bindCalculatorPopup(unidade, multiplicador, tipoLote) {
-    multiplicador = parseInt(multiplicador)
-
-    $('.calculadora-minimo-step1 .calculadora-minimo--text1 b').html(unidade)
-    $('.calculadora-minimo-step1 .calculadora-minimo--text2 b').html(`${multiplicador} ${unidade} (1 ${tipoLote})`)
-
-    $('.calculadora-minimo--icon, .calculadora-minimo--text, .calculadora-minimo--popup__close').on('click', () => {
-      $('.calculadora-minimo--popup').toggleClass('displayed')
-      $('.calculadora-minimo-step2').removeClass('displayed')
-    })
-
-    $('.calculadora-minimo--input').on('keyup', e => {
-      const _this = $(e.currentTarget)
-      const valRep = _this.val().replace(/,/g, '.')
-      _this.val(valRep)
-    })
-
-    $('.calculadora-btn-step1').on('click', () => {
-      const valInput = parseFloat($('.calculadora-minimo-step1 .calculadora-minimo--input').val())
-      const calcVal = Math.ceil(valInput / multiplicador) * multiplicador
-      const divisor = calcVal / multiplicador
-
-      $('.calculadora-minimo-step2').addClass('displayed')
-      $('.calculadora-minimo-step2 .calculadora-minimo--text1 b').html(`${valInput} ${unidade}`)
-      divisor > 1 ? $('.calculadora-minimo-step2 .calculadora-minimo--text2').text(`${calcVal} ${unidade} (Totalizando ${divisor} ${tipoLote}s)`) : $('.calculadora-minimo-step2 .calculadora-minimo--text2').text(`${calcVal} ${unidade} (Totalizando ${divisor} ${tipoLote})`)
-
-      $('.calculadora-btn-step2').on('click', () => {
-        $('.calculadora-minimo--popup, .calculadora-minimo-step2').removeClass('displayed')
-        $('.calculadora-qtd--input').val(calcVal)
-        $('.calculadora-lote-unidade').text(`${calcVal} ${unidade}`)
-        divisor > 1 ? $('.calculadora-lote-tipo').text(`${divisor} ${tipoLote}s`) : $('.calculadora-lote-tipo').text(`${divisor} ${tipoLote}`)
-        let buyButtonUrl = $('.buy-button').attr('href')
-        const buyButtonQty = buyButtonUrl.split('&qty=')[1].split('&')[0]
-        buyButtonUrl = buyButtonUrl.replace(`&qty=${buyButtonQty}`, `&qty=${divisor}`)
-
+      if ($(e.currentTarget).hasClass('calculadora-qtd--less')) {
+        if (qtdInputValue - 1 == 0) return null
+        buyButtonUrl = buyButtonUrl.replace(`&qty=${buyButtonQty}`, `&qty=${qtdInputValue - 1}`)
         $('.buy-button').attr('href', buyButtonUrl)
-      })
+        qtdInput.attr('value', qtdInputValue - 1)
+      } else {
+        buyButtonUrl = buyButtonUrl.replace(`&qty=${buyButtonQty}`, `&qty=${parseInt(qtdInputValue) + 1}`)
+        $('.buy-button').attr('href', buyButtonUrl)
+        qtdInput.attr('value', parseInt(qtdInputValue) + 1)
+      }
     })
   },
 

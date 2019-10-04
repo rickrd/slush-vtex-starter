@@ -1059,26 +1059,20 @@
 }
 
 .calculadora-produto {
-  display: none;
   align-items: center;
-  padding: 20px 0;
-  margin: 20px 0 0;
-  border-top: 1px solid $alto;
-  border-bottom: 1px solid $alto;
   position: relative;
+  width: 116px;
+  height: 45px;
+  margin: 20px 0;
   @media (max-width: $screen-sm-max) {
     text-align: center;
+    margin-bottom: 33px;
   }
-  &.displayed {
-    display: inline-block;
-    width: 100%;
-    @media (min-width: $screen-md-min) {
-      display: flex;
-    }
-  }
+
   i {
     display: inline-block;
   }
+
   .calculadora-qtd {
     float: left;
     @media (max-width: $screen-sm-max) {
@@ -1087,22 +1081,28 @@
       vertical-align: middle;
     }
   }
+
   .calculadora-qtd--text {
     display: inline-block;
     vertical-align: middle;
     margin-right: 15px;
   }
+
   .calculadora-qtd--field {
-    width: 112px;
-    border: 1px solid $doveGray;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 116px;
+    height: 45px;
     vertical-align: middle;
+    background: #fff;
+    padding: 15px 10px;
+
     span {
-      width: calc(100% / 3);
       display: inline-block;
       vertical-align: middle;
       position: relative;
-      height: 38px;
       cursor: pointer;
       &:before {
         content: '';
@@ -1115,13 +1115,13 @@
 
       &.calculadora-qtd--less {
         &:before {
-          @include sprite($sprite-main-icon-produto-qtd-less);
+          // @include sprite($sprite-main-icon-produto-qtd-less);
         }
       }
 
       &.calculadora-qtd--more {
         &:before {
-          @include sprite($sprite-main-icon-produto-qtd-more);
+          // @include sprite($sprite-main-icon-produto-qtd-more);
         }
       }
     }
@@ -1135,199 +1135,6 @@
       border-radius: 0;
       font-size: 14px;
       text-align: center;
-    }
-  }
-
-  .calculadora-lote {
-    text-align: left;
-    text-transform: uppercase;
-    float: left;
-    margin: 0 15px;
-    font-size: 12px;
-    @media (max-width: $screen-sm-max) {
-      float: none;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .calculadora-lote-unidade {
-      display: block;
-      width: 100%;
-    }
-
-    .calculadora-lote-tipo {
-      display: block;
-      width: 100%;
-    }
-  }
-
-  .calculadora-minimo {
-    float: left;
-    font-size: 12px;
-    cursor: pointer;
-    @media (max-width: $screen-sm-max) {
-      display: block;
-      text-align: center;
-      width: 100%;
-      margin-top: 20px;
-    }
-    i,
-    .calculadora-minimo--text {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .calculadora-minimo--text {
-      margin-left: 10px;
-      vertical-align: top;
-      @media (max-width: $screen-sm-max) {
-        text-align: left;
-      }
-    }
-
-    .calculadora-minimo--text__value {
-      display: block;
-      line-height: 12px;
-    }
-  }
-
-  .calculadora-minimo--popup {
-    @include transition(opacity 300ms);
-    opacity: 0;
-    display: none;
-    position: absolute;
-    width: 250px;
-    height: 180px;
-    background-color: $thunder;
-    color: $white;
-    top: -170px;
-    padding: 30px;
-    right: 110px;
-
-    b {
-      font-weight: $fontRegular;
-    }
-    &.displayed {
-      display: block;
-      opacity: 1;
-      @include transition(opacity 300ms);
-    }
-
-    &:after {
-      content: '';
-      @include triangle(down, 20px, $thunder);
-      position: absolute;
-      bottom: -30px;
-      right: 10px;
-      display: block;
-    }
-
-    @media (max-width: $screen-sm-max) {
-      width: 100%;
-      left: 0;
-      top: 0;
-      &:after {
-        display: none;
-      }
-    }
-
-    span {
-      display: block;
-    }
-
-    .calculadora-minimo--popup__close {
-      cursor: pointer;
-      position: absolute;
-      @include closeX($doveGray, 15px, 1px);
-      top: 10px;
-      right: 10px;
-      width: 20px;
-      height: 20px;
-      z-index: 3;
-    }
-
-    .calculadora-minimo--popup__title {
-      color: $secondaryColor;
-      font-size: 15px;
-      font-weight: 500;
-    }
-  }
-
-  .calculadora-minimo-step1 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 1;
-    background-color: $thunder;
-    padding: 40px 29px 30px 29px;
-
-    .calculadora-minimo--text1 {
-      b {
-        text-transform: uppercase;
-      }
-    }
-
-    .calculadora-minimo--popup__field {
-      margin-top: 20px;
-    }
-
-    .calculadora-minimo--input {
-      padding: 6px 20px;
-      max-width: 90px;
-      display: inline-block;
-      font-size: 14px;
-      color: $thunder;
-    }
-
-    .calculadora-btn-step1 {
-      max-width: 100px;
-      display: inline-block;
-      padding: 8px 0;
-      background-color: $alto;
-      font-size: 14px;
-      text-align: center;
-      width: 100%;
-      cursor: pointer;
-    }
-  }
-
-  .calculadora-minimo-step2 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    top: 0;
-    background-color: $thunder;
-    padding: 40px 29px 30px 29px;
-    display: none;
-
-    .calculadora-minimo--text1 {
-      b {
-        text-transform: uppercase;
-      }
-    }
-
-    &.displayed {
-      display: block;
-    }
-
-    .calculadora-minimo--popup__field {
-      margin-top: 3px;
-    }
-
-    .calculadora-btn-step2 {
-      display: inline-block;
-      padding: 8px 0;
-      background-color: $alto;
-      font-size: 14px;
-      text-align: center;
-      width: 100%;
-      cursor: pointer;
     }
   }
 }

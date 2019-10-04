@@ -19,6 +19,22 @@
       }
     }
   }
+
+  .slick-arrow {
+    position: absolute;
+    font-size: 0;
+    border: 0;
+    top: 50%;
+    z-index: 2;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 0;
+  }
 }
 
 body.list {
@@ -37,7 +53,6 @@ body.list {
 .shelf-item {
   margin-bottom: 20px;
   position: relative;
-  border: 1px solid $desertStorm;
   text-align: center;
   padding: 17px;
 
@@ -121,11 +136,13 @@ body.list {
   text-align: center;
   position: absolute;
   background-color: $secondaryColor;
-  color: $thunder;
+  color: $primaryColor;
   text-transform: uppercase;
   padding: 10px 0;
   &:hover {
     text-decoration: none;
+    color: $secondaryColor;
+    background-color: $primaryColor;
   }
 }
 

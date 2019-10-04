@@ -73,58 +73,18 @@
                   <vtex.cmc:skuPrice></vtex.cmc:skuPrice>
                 </div>
 
-                <div class="product-buy">
-                  <vtex.cmc:BuyButton></vtex.cmc:BuyButton>
-                </div>
-
                 <div class="calculadora-produto">
                   <div class="calculadora-qtd">
-                    <div class="calculadora-qtd--text">Quantidade:</div>
                     <div class="calculadora-qtd--field">
-                      <span class="calculadora-qtd-btn calculadora-qtd--less"></span>
-                      <input type="text" class="calculadora-qtd--input" />
-                      <span class="calculadora-qtd-btn calculadora-qtd--more"></span>
+                      <span class="calculadora-qtd-btn calculadora-qtd--less sprite icon-product-qtd-minus"></span>
+                      <input type="text" class="calculadora-qtd--input" value="1" />
+                      <span class="calculadora-qtd-btn calculadora-qtd--more sprite icon-product-qtd-plus"></span>
                     </div>
                   </div>
+                </div>
 
-                  <div class="calculadora-lote">
-                    <span class="calculadora-lote-unidade"></span>
-                    <span class="calculadora-lote-tipo"></span>
-                  </div>
-                  <div class="calculadora-minimo">
-                    <i class="calculadora-minimo--icon sprite icon-calculadora"></i>
-                    <div class="calculadora-minimo--text">
-                      Unidade mínima
-                      <span class="calculadora-minimo--text__value"></span>
-                    </div>
-                    <div class="calculadora-minimo--popup">
-                      <i class="calculadora-minimo--popup__close"></i>
-                      <div class="calculadora-minimo-step1">
-                        <span class="calculadora-minimo--popup__title">CALCULADORA</span>
-                        <div class="calculadora-minimo--popup__text">
-                          <span class="calculadora-minimo--text1">Digite a quantidade necessária (em <b></b>)</span>
-                          <span class="calculadora-minimo--text2">Unidade mínima: <b></b></span>
-                        </div>
-
-                        <div class="calculadora-minimo--popup__field">
-                          <input type="text" name="calculadora-minimo" class="calculadora-minimo--input" />
-                          <a href="javascript:;" class="calculadora-btn calculadora-btn-step1">CALCULAR</a>
-                        </div>
-                      </div>
-
-                      <div class="calculadora-minimo-step2">
-                        <span class="calculadora-minimo--popup__title">CALCULADORA <i class="sprite icon-calculadora-refresh"></i></span>
-                        <div class="calculadora-minimo--popup__text">
-                          <span class="calculadora-minimo--text1">Para <b></b> a quantidade mínima que você deverá adicionar ao carrinho é</span>
-                          <span class="calculadora-minimo--text2"></span>
-                        </div>
-
-                        <div class="calculadora-minimo--popup__field">
-                          <a href="javascript:;" class="calculadora-btn calculadora-btn-step2">SELECIONAR QUANTIDADE</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="product-buy">
+                  <vtex.cmc:BuyButton></vtex.cmc:BuyButton>
                 </div>
               </div>
               <!-- END: Product Buy -->
