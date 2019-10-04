@@ -3,7 +3,7 @@
   "author": "@rickrd",
   "license": "ISC",
   "version": "0.0.9",
-  "description": "VTEX easily configurable project structure and custom theme based template",
+  "description": "custom theme based VTEX configurable project structure",
   "vtex": {
     "store": "<%= storeName %>",
     "acronym": "<%= storeAcronym %>",

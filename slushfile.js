@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var inquirer = require('inquirer');
-var updateNotifier = require('update-notifier');
-var pkg = require('./package.json');
+var gulp = require('gulp')
+var $ = require('gulp-load-plugins')()
+var inquirer = require('inquirer')
+var updateNotifier = require('update-notifier')
+var pkg = require('./package.json')
 
 gulp.task('default', function(done) {
-  updateNotifier({ pkg: pkg }).notify();
+  updateNotifier({ pkg: pkg }).notify()
 
   var questions = [
     {
       name: 'storeName',
-      message: 'Qual o "username" da loja? (Ex.: labellamafia)',
+      message: 'Store account name: (Ex.: calvinklein)',
       default: 'store'
     },
     {
       name: 'storeAcronym',
-      message: 'Qual a sigla da loja? (Ex.: lbm)',
-      default: 'xxx'
+      message: 'Store acronym: (Ex.: ckn)',
+      default: 'acronym'
     },
     {
       type: 'list',
@@ -35,10 +35,10 @@ gulp.task('default', function(done) {
         }
       ]
     }
-  ];
+  ]
 
-  var filterImages = $.filter(['**/**', '!template/assets/img/', '!template/assets/img/**'], { restore: true });
-  var filterGulp = $.filter(['**/**', '!template/gulpfile.babel.js'], { restore: true });
+  var filterImages = $.filter(['**/**', '!template/assets/img/', '!template/assets/img/**'], { restore: true })
+  var filterGulp = $.filter(['**/**', '!template/gulpfile.babel.js'], { restore: true })
 
   inquirer.prompt(questions).then(function(answers) {
     gulp
@@ -51,18 +51,18 @@ gulp.task('default', function(done) {
       .pipe(
         $.rename(function(file) {
           if (file.basename[0] === '@') {
-            file.basename = '.' + file.basename.slice(1);
+            file.basename = '.' + file.basename.slice(1)
           }
 
           if (file.basename.indexOf('-acronym-') > -1) {
-            file.basename = file.basename.replace('acronym', answers.storeAcronym);
+            file.basename = file.basename.replace('acronym', answers.storeAcronym)
           }
         })
       )
       .pipe($.conflict('./'))
       .pipe(gulp.dest('./'))
       .on('finish', function() {
-        done();
-      });
-  });
-});
+        done()
+      })
+  })
+})
