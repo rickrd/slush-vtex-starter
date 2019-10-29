@@ -114,7 +114,7 @@ gulp.task('clean', () => {
 //   _/ |\__,_| \_/ \__,_|___/\___|_|  |_| .__/ \__|
 //  |__/                                 |_|
 
-gulp.task('js', ['js:main', 'js:lint', 'js:legacy'])
+gulp.task('js', ['js:main', 'js:legacy'])
 
 gulp.task('js:main', () => {
   return gulp
